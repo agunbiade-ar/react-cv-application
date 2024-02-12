@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container_ {
+  display: flex;
+  justify-content: center;
+}
+
+.container_innerContainer {
+  flex: 1;
+}
+
+.headercomponent-container {
+  text-align: center;
+  display: flex;
+  padding: 1rem 5px;
+}
