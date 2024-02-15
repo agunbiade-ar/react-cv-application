@@ -1,7 +1,21 @@
-import React from 'react';
-
-function InputComponent({ label, type, placeholder, inputText }) {
-  return <div>InputComponent</div>;
+function InputComponent({ label, type, value, HandleChangeOnBasicInfo }) {
+  console.log(value);
+  return (
+    <div>
+      <div>
+        <label htmlFor={label}>{label}</label>
+      </div>
+      <div>
+        <input
+          type={type}
+          id={label}
+          name={label}
+          value={value}
+          onChange={(e) => HandleChangeOnBasicInfo(e, label)}
+        />
+      </div>
+    </div>
+  );
 }
 
 export default InputComponent;
