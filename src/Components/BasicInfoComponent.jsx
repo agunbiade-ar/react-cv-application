@@ -1,9 +1,11 @@
-import InputComponent from './InputComponent/InputComponent';
-import { useContext } from 'react';
-import { stateContext } from '../App';
+import InputComponent from './InputComponent/InputComponent'
+import TextAreaComponent from './TextAreaComponent/TextAreaComponent'
+
+import { useContext } from 'react'
+import { stateContext } from '../App'
 
 function BasicInfoComponent() {
-  const { HandleChangeOnBasicInfo, basicInfo } = useContext(stateContext);
+  const { onChangeInfo, info } = useContext(stateContext)
 
   return (
     <div>
@@ -11,26 +13,32 @@ function BasicInfoComponent() {
       <br />
       <InputComponent
         type={'text'}
-        label={'First Name'}
-        value={basicInfo['First Name']}
-        HandleChangeOnBasicInfo={HandleChangeOnBasicInfo}
-      />
-
-      <InputComponent
-        type={'text'}
-        label={'Last Name'}
-        value={basicInfo['Last Name']}
-        HandleChangeOnBasicInfo={HandleChangeOnBasicInfo}
+        label={'Full Name'}
+        value={info['First Name']}
+        onChangeFunction={onChangeInfo}
       />
 
       <InputComponent
         type={'text'}
         label={'Email'}
-        value={basicInfo['Email']}
-        HandleChangeOnBasicInfo={HandleChangeOnBasicInfo}
+        value={info['Email']}
+        onChangeFunction={onChangeInfo}
+      />
+
+      <InputComponent
+        type={'number'}
+        label={'Phone'}
+        value={info['Phone']}
+        onChangeFunction={onChangeInfo}
+      />
+
+      <TextAreaComponent
+        label={'Address'}
+        value={info['Address']}
+        onChangeFunction={onChangeInfo}
       />
     </div>
-  );
+  )
 }
 
-export default BasicInfoComponent;
+export default BasicInfoComponent

@@ -1,5 +1,4 @@
-function InputComponent({ label, type, value, HandleChangeOnBasicInfo }) {
-  console.log(value);
+function InputComponent({ label, type, value, onChangeFunction }) {
   return (
     <div>
       <div>
@@ -11,11 +10,11 @@ function InputComponent({ label, type, value, HandleChangeOnBasicInfo }) {
           id={label}
           name={label}
           value={value}
-          onChange={(e) => HandleChangeOnBasicInfo(e, label)}
+          onChange={(e) => onChangeFunction(e, label)}
         />
       </div>
     </div>
-  );
+  )
 }
 
-export default InputComponent;
+export default InputComponent
