@@ -10,6 +10,8 @@ function TextAreaComponent({ label, value, onChangeFunction }) {
         name={label}
         value={value}
         onChange={(e) => onChangeFunction(e, label)}
+        rows={5}
+        cols={40}
       />
     </div>
   )

@@ -1,11 +1,15 @@
 import InputComponent from './InputComponent/InputComponent'
+import ButtonComponent from './ButtonComponent'
+
 import { useContext } from 'react'
 import { stateContext } from '../App'
 
 function EducationComponent() {
-  const { onChangeInfo, info, HandleAddInfo } = useContext(stateContext)
+  const { onChangeInfo, info, HandleAddEducationInfo } =
+    useContext(stateContext)
   return (
     <div>
+      <br />
       <h3>Education History</h3>
       <InputComponent
         label={'School Name'}
@@ -21,9 +25,24 @@ function EducationComponent() {
         onChangeFunction={onChangeInfo}
       />
 
-      <div>
-        <button onClick={HandleAddInfo}>Add</button>
-      </div>
+      <InputComponent
+        label={'Start Date'}
+        type={'date'}
+        value={info['Start Date']}
+        onChangeFunction={onChangeInfo}
+      />
+
+      <InputComponent
+        label={'End Date'}
+        type={'date'}
+        value={info['End Date']}
+        onChangeFunction={onChangeInfo}
+      />
+
+      <ButtonComponent
+        label={'Add'}
+        handleClickFunction={HandleAddEducationInfo}
+      />
     </div>
   )
 }

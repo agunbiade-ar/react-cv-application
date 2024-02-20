@@ -3,6 +3,7 @@ import './App.css'
 import HeaderComponent from './Components/HeaderComponent'
 import BasicInfoComponent from './Components/BasicInfoComponent'
 import EducationComponent from './Components/EducationComponent'
+import PracticalExperienceComponent from './Components/PracticalExperienceComponent'
 
 export const stateContext = createContext()
 
@@ -16,6 +17,14 @@ function App() {
     'School Name': '',
     Course: '',
     'School Details': [],
+    'Start Date': '',
+    'End Date': '',
+    'Company Name': '',
+    Position: '',
+    Responsibilities: '',
+    'Employment Start Date': '',
+    'Employment End Date': '',
+    employmentHistory: [],
   })
 
   const ToggleDarkMode = () => {
@@ -31,20 +40,51 @@ function App() {
     })
   }
 
-  const HandleAddInfo = () => {
+  const HandleAddEducationInfo = () => {
     setInfo((prevInfo) => {
       return {
         ...prevInfo,
         ['School Name']: '',
         Course: '',
+        ['Start Date']: '',
+        ['End Date']: '',
         'School Details': [
           ...prevInfo['School Details'],
-          { name: info['School Name'], course: info['Course'] },
+          {
+            name: info['School Name'],
+            course: info['Course'],
+            startDate: info['Start Date'],
+            endDate: info['End Date'],
+          },
         ],
       }
     })
   }
-  console.log(info['School Details'])
+
+  const HandleAddEmploymentInfo = () => {
+    setInfo((prevInfo) => {
+      return {
+        ...prevInfo,
+        Position: '',
+        ['Company Name']: '',
+        Responsibilities: '',
+        ['Employment Start Date']: '',
+        ['Employment End Date']: '',
+        employmentHistory: [
+          ...prevInfo['employmentHistory'],
+          {
+            position: info['Position'],
+            companyName: info['Company Name'],
+            responsibilities: info['Responsibilities'],
+            empStartDate: info['Employment Start Date'],
+            empEndDate: info['Employment End Date'],
+          },
+        ],
+      }
+    })
+  }
+
+  console.log(info)
   return (
     <>
       <div
@@ -57,12 +97,14 @@ function App() {
               ToggleDarkMode,
               onChangeInfo,
               info,
-              HandleAddInfo,
+              HandleAddEducationInfo,
+              HandleAddEmploymentInfo,
             }}
           >
             <HeaderComponent label={'CV-Generator'} />
             <BasicInfoComponent />
             <EducationComponent />
+            <PracticalExperienceComponent />
           </stateContext.Provider>
         </div>
 

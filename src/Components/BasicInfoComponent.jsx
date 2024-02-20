@@ -9,17 +9,17 @@ function BasicInfoComponent() {
 
   return (
     <div>
-      <h3>Basic Info</h3>
       <br />
+      <h3>Basic Info</h3>
       <InputComponent
         type={'text'}
         label={'Full Name'}
-        value={info['First Name']}
+        value={info['Full Name']}
         onChangeFunction={onChangeInfo}
       />
 
       <InputComponent
-        type={'text'}
+        type={'email'}
         label={'Email'}
         value={info['Email']}
         onChangeFunction={onChangeInfo}
